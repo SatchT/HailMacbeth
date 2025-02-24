@@ -82,10 +82,10 @@ document.addEventListener("DOMContentLoaded", function() {
     video.load();
 });
 
+// Mobile horiziontal scroll
 document.addEventListener("DOMContentLoaded", function() {
     const crEmpty = document.getElementById('cr_empty');
     const header = document.querySelector('header'); // Get the header element
-    const headerHeight = header.offsetHeight; // Get the height of the header
 
     function updatePosition() {
         const scrollPosition = window.scrollY; // Current vertical scroll position
@@ -100,7 +100,10 @@ document.addEventListener("DOMContentLoaded", function() {
         crEmpty.style.transform = `translateX(${newPosition}vw)`;
     }
 
-    // Attach the event listeners
-    window.addEventListener('scroll', updatePosition);
-    window.addEventListener('touchmove', updatePosition);
+    // Check if the screen width is less than or equal to 765px
+    if (window.matchMedia("(max-width: 765px)").matches) {
+        // Attach the event listeners
+        window.addEventListener('scroll', updatePosition);
+        window.addEventListener('touchmove', updatePosition);
+    }
 });

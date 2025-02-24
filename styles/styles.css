@@ -86,6 +86,7 @@ video {
 
 .marquee-content {
     animation: marquee 10s linear infinite;
+    width: 100%;
     color: var(--color-marquee-text);
 }
 
@@ -207,6 +208,19 @@ footer table td:nth-child(2)
 
 /* Display only if the page width is less than 720px */
 @media (max-width: 765px) {
+
+    .marquee-content {
+        width: 200%;
+    }
+    
+    @keyframes marquee {
+        0% {
+            transform: translateX(100%); /* Start from the right */
+        }
+        100% {
+            transform: translateX(-150%); /* Move to the left */
+        }
+    }
     
     #cr_empty {
         width: 200vw;
