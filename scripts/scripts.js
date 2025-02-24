@@ -91,8 +91,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const scrollPosition = window.scrollY; // Current vertical scroll position
         const headerHeight = header.offsetHeight; // Get the height of the header
 
-        // Calculate the interpolation factor (0 to 1)
-        const factor = Math.min(1, scrollPosition / headerHeight);
+        // Calculate the interpolation factor (0 to 1), starting at the middle of the header
+        const factor = Math.min(1, Math.max(0, (scrollPosition - headerHeight / 2) / (headerHeight / 2)));
 
         // Interpolate the position from 0vw to -100vw
         const newPosition = -100 * factor;
