@@ -1,0 +1,231 @@
+/* Declare custom colors */
+:root {
+    --color-background: #000;
+    --color-text: #ededed;
+    --color-marquee-text: #ff8c00;
+    --color-email-glow: #41aa7b;
+    --color-email-shadow: #225c42;
+    --color-accent: #e30000;
+    --color-log: #9f9f9f;
+}
+
+/* Add the fonts in the local fonts folder */
+@font-face {  
+    font-family: 'Consolas';  
+    font-style: normal;  
+    font-weight: 400;  
+    src: local('Consolas'), local('Roboto-Consolas'), url(../assets/fonts/Consolas.woff) format('woff');
+}
+
+@font-face {  
+    font-family: 'Share Tech Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: local('ShareTechMono'), local('Roboto-ShareTechMono'), url(../assets/fonts/ShareTechMono.woff) format('woff');
+}
+
+@font-face {  
+    font-family: 'Subway Ticker';
+    font-style: normal;
+    font-weight: 400;
+    src: local('SubwayTicker'), local('Roboto-SubwayTicker'), url(../assets/fonts/SubwayTicker.woff) format('woff');
+}
+
+.consolas {
+    font-family: 'Consolas', monospace;
+}
+
+.share-tech-mono {
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.subway-ticker {
+    font-family: 'Subway Ticker', monospace;
+}
+
+.times-new-roman {
+    font-family: 'Times New Roman', serif;
+}
+
+/* Default html values */
+
+html, body, footer {
+    background-color: var(--color-background) !important;
+    color: var(--color-text);
+    font-size: 1rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#container {
+    max-width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Video */
+
+
+video {
+    display: block;
+}
+
+/* Marquee effect */
+
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    background-color: var(--color-background);
+    position: relative;
+    font-family: "Subway Ticker", monospace;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.marquee-content {
+    animation: marquee 10s linear infinite;
+    color: var(--color-marquee-text);
+}
+
+.marquee p {
+    margin: 0;
+}
+
+.marquee p.white {
+    color: var(--color-text);
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%); /* Start from the right */
+    }
+    100% {
+        transform: translateX(-100%); /* Move to the left */
+    }
+}
+
+/* Contact */
+#cr_empty {
+    min-height: 500px;
+    color: var(--color-text);
+    background-size: cover;
+    background-image: linear-gradient(to right, 
+        rgba(0, 0, 0, 0.15), 
+        rgba(0, 0, 0, 0.75)), 
+        url(../assets/img/cr_empty.png);
+}
+
+#contact {
+    display: grid;
+    place-items: center;
+}
+
+/* Left */
+
+.system-log {
+    color: var(--color-log);
+    font-size: 1rem;
+    
+    /* align to bottom left of the container */
+    position: absolute;
+    bottom: 5px;
+    left: 15px;
+}
+
+/* Right */
+
+.title {
+    font-size: 2.5rem;
+}
+
+.subtitle {
+    font-family: "Times New Roman";
+    font-size: 1.2rem;
+}
+
+.mail-container {
+    font-size: 1.5rem;
+    padding-top:     3rem;
+    padding-bottom:  3rem;
+}
+
+.glowing-green {
+    color: var(--color-email-glow);
+    text-shadow:
+            0 0 10px var(--color-email-shadow),
+            0 0 20px var(--color-email-shadow), 
+            0 0 40px var(--color-email-shadow), 
+            0 0 80px var(--color-email-shadow);
+    text-decoration: none;
+}
+
+.glowing-green:hover {
+    color: var(--color-email-glow);
+    text-shadow:
+            0 0 10px var(--color-email-glow),
+            0 0 20px var(--color-email-glow),
+            0 0 40px var(--color-email-glow),
+            0 0 80px var(--color-email-glow);
+}
+
+.small-text {
+    font-size: .8rem;
+}
+
+/* Footer */
+
+footer .col-md-6 {
+}
+
+footer .info {
+    font-size: 1rem;
+    padding-left:   8rem;
+    padding-right:  5rem;
+}
+
+footer .studio {
+    font-size: 1rem;
+    padding-right:  8rem;
+    padding-left:   5rem;
+}
+
+footer table {
+    font-size: 1rem;
+    line-height: 1rem;
+}
+
+footer table td:nth-child(2)
+{
+    padding-left: 1rem;
+}
+
+.separator-left-red {
+    border-left: var(--color-accent) 2px solid;
+}
+
+/* Display only if the page width is less than 720px */
+@media (max-width: 765px) {
+    
+    #cr_empty {
+        width: 200vw;
+        position: relative;
+    }
+    
+    .info {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    
+    .separator-top-red {
+        border-top: var(--color-accent) 2px solid;
+        padding-top: 3rem;
+        padding-bottom: 2rem;
+    }
+
+    footer .col-md-6 {
+        padding-left:   3rem;
+        padding-right:  3rem;
+    }
+}
