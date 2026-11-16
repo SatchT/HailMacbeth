@@ -1,245 +1,335 @@
-/* Declare custom colors */
+/* ============================================================
+   HAIL MACBETH — single page
+   ============================================================ */
+
 :root {
     --color-background: #000;
     --color-text: #ededed;
+    --color-muted: #8a8a8a;
     --color-marquee-text: #ff8c00;
     --color-email-glow: #41aa7b;
     --color-email-shadow: #225c42;
     --color-accent: #e30000;
     --color-log: #9f9f9f;
+    --color-line: #262626;
+    --max: 1080px;
+    --serif: 'EB Garamond', Garamond, 'Times New Roman', serif;
 }
 
-/* Add the fonts in the local fonts folder */
-@font-face {  
-    font-family: 'Consolas';  
-    font-style: normal;  
-    font-weight: 400;  
-    src: local('Consolas'), local('Roboto-Consolas'), url(../assets/fonts/Consolas.woff) format('woff');
-}
-
-@font-face {  
-    font-family: 'Share Tech Mono';
+/* Fonts (local files in /assets/fonts, Google fallbacks) */
+@font-face {
+    font-family: 'Consolas';
     font-style: normal;
     font-weight: 400;
-    src: local('ShareTechMono'), local('Roboto-ShareTechMono'), url(../assets/fonts/ShareTechMono.woff) format('woff');
+    src: local('Consolas'), url(../assets/fonts/Consolas.woff) format('woff');
 }
-
-@font-face {  
+@font-face {
     font-family: 'Subway Ticker';
     font-style: normal;
     font-weight: 400;
-    src: local('SubwayTicker'), local('Roboto-SubwayTicker'), url(../assets/fonts/SubwayTicker.woff) format('woff');
+    src: local('SubwayTicker'), url(../assets/fonts/SubwayTicker.woff) format('woff');
 }
 
-.consolas {
-    font-family: 'Consolas', monospace;
-}
+.consolas { font-family: 'Consolas', 'Share Tech Mono', monospace; }
 
-.share-tech-mono {
-    font-family: 'Share Tech Mono', monospace;
-}
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
 
-.subway-ticker {
-    font-family: 'Subway Ticker', monospace;
-}
-
-.times-new-roman {
-    font-family: 'Times New Roman', serif;
-}
-
-/* Default html values */
-
-html, body, footer {
-    background-color: var(--color-background) !important;
+html, body {
+    margin: 0;
+    background: var(--color-background);
     color: var(--color-text);
-    font-size: 1rem;
-    overflow-y: auto;
+    font-family: var(--serif);
+    font-size: 16px;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
+
+p { margin: 0; }
+a { color: inherit; }
 
 #container {
-    max-width: 1080px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: var(--max);
+    margin: 0 auto;
 }
 
-/* Video */
+.muted { color: var(--color-muted); }
+.red { color: var(--color-accent); }
 
-
+/* ---------- Hero ---------- */
 video {
     display: block;
-}
-
-/* Marquee effect */
-
-.marquee {
     width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    box-sizing: border-box;
-    background-color: var(--color-background);
-    position: relative;
-    font-family: "Subway Ticker", monospace;
-    font-size: 2rem;
-    text-transform: uppercase;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: #000;
 }
 
-.marquee-content {
-    animation: marquee 10s linear infinite;
-    width: 100%;
-    color: var(--color-marquee-text);
+/* ---------- Title strip ---------- */
+.title-strip {
+    padding: 7rem 1.5rem 5.5rem;
+    text-align: center;
+    background: #000;
 }
-
-.marquee p {
+.game-title {
     margin: 0;
-}
-
-.marquee p.white {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 2.6rem;
+    letter-spacing: .32em;
+    margin-right: -.32em; /* keep spaced caps optically centred */
+    line-height: 1;
     color: var(--color-text);
 }
-
-@keyframes marquee {
-    0% {
-        transform: translateX(100%); /* Start from the right */
-    }
-    100% {
-        transform: translateX(-100%); /* Move to the left */
-    }
+.game-sub {
+    margin-top: 1.1rem;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.3rem;
+    color: #a8a8a8;
+    text-wrap: balance;
 }
 
-/* Contact */
-#cr_empty {
+/* ---------- Control room ---------- */
+#cr {
+    position: relative;
     min-height: 500px;
-    color: var(--color-text);
-    background-size: cover;
-    background-image: linear-gradient(to right, 
-        rgba(0, 0, 0, 0.15), 
-        rgba(0, 0, 0, 0.75)), 
-        url(../assets/img/cr_empty.png);
-}
-
-#contact {
     display: grid;
-    place-items: center;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    background-image:
+        linear-gradient(to right, rgba(0,0,0,.15), rgba(0,0,0,.8)),
+        url(../assets/img/cr_empty.jpg);
+    background-size: cover;
+    background-position: left center;
 }
 
-/* Left */
+.cr-hook {
+    grid-column: 2;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.title { font-size: 2.5rem; }
+
+.tagline {
+    margin-top: 1.25rem;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.4rem;
+    line-height: 1.45;
+    color: #d6d6d6;
+}
 
 .system-log {
+    position: absolute;
+    left: 15px;
+    bottom: 8px;
     color: var(--color-log);
     font-size: 1rem;
-    
-    /* align to bottom left of the container */
+}
+
+/* ---------- Press: poster quotes ---------- */
+#press {
+    position: relative;
+    margin-top: 2rem;
+    padding: 3.75rem 4rem 3.75rem;
+    text-align: center;
+    background-image:
+        radial-gradient(ellipse at center, rgba(0,0,0,.7) 0%, rgba(0,0,0,.84) 60%, #000 100%),
+        url(../assets/img/duncans_hotel.jpg);
+    background-size: cover;
+    background-position: center 90%;
+}
+
+.press-poster { max-width: 52rem; margin: 0 auto; }
+
+.pq {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .9rem;
+    text-decoration: none;
+    color: var(--color-text);
+}
+.pq-text {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    line-height: 1.3;
+    text-wrap: balance;
+    text-shadow: 0 0 18px rgba(0,0,0,.9);
+    transition: color .25s ease;
+}
+.pq-src {
+    font-size: .75rem;
+    letter-spacing: .28em;
+    color: #b5b5b5;
+    text-shadow: 0 0 10px #000, 0 0 4px #000;
+    transition: color .25s ease, text-shadow .25s ease;
+}
+.pq:hover .pq-text { color: #fff; }
+.pq:hover .pq-src {
+    color: var(--color-email-glow);
+    text-shadow: 0 0 10px var(--color-email-shadow), 0 0 20px var(--color-email-shadow);
+}
+
+.pq-hero .pq-text {
+    font-size: 2.6rem;
+    line-height: 1.15;
+    font-style: italic;
+}
+.pq-hero { max-width: 40rem; margin: 0 auto; }
+.pq-hero .pq-src { font-size: .85rem; color: #ff3b3b; }
+
+.pq-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-top: 4rem;
+    padding-top: 3rem;
+    position: relative;
+}
+.pq-row::before { /* short red rule, like a poster divider */
+    content: "";
     position: absolute;
-    bottom: 5px;
-    left: 15px;
+    top: 0; left: 50%;
+    width: 3rem; height: 2px;
+    margin-left: -1.5rem;
+    background: var(--color-accent);
 }
 
-/* Right */
-
-.title {
-    font-size: 2.5rem;
+/* ---------- Ident ---------- */
+.ident {
+    margin-top: 1rem;
+    aspect-ratio: 16 / 7.9;   /* trims ~12% of empty black above the logo */
+    overflow: hidden;
+}
+.ident video {
+    height: 100%;
+    aspect-ratio: auto;
+    object-fit: cover;
+    object-position: center 81%;  /* logo optically centred in the slot */
 }
 
-.subtitle {
-    font-family: "Times New Roman";
-    font-size: 1.2rem;
-}
+/* ---------- Footer ---------- */
+footer { padding: 3rem 0 3rem; }
 
-.mail-container {
-    font-size: 1.5rem;
-    padding-top:     3rem;
-    padding-bottom:  3rem;
+.footer-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1.5rem 0;
 }
+footer .info { padding: 0 5rem 0 8rem; font-size: 1.12rem; line-height: 1.5; }
+footer .studio {
+    padding: 0 8rem 0 5rem;
+    border-left: 2px solid var(--color-accent);
+}
+footer table { border-collapse: collapse; line-height: 1.35; }
+footer th { text-align: left; font-weight: 400; padding-bottom: 1rem; }
+footer td { padding: 0; vertical-align: top; }
+footer td:nth-child(2) { padding-left: 1rem; }
 
+.contact {
+    text-align: center;
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--color-line);
+}
+.subtitle { font-family: var(--serif); font-size: 1.3rem; }
+.mail-container { font-size: 1.5rem; padding: 1.5rem 0 2rem; }
 .glowing-green {
     color: var(--color-email-glow);
-    text-shadow:
-            0 0 10px var(--color-email-shadow),
-            0 0 20px var(--color-email-shadow), 
-            0 0 40px var(--color-email-shadow), 
-            0 0 80px var(--color-email-shadow);
     text-decoration: none;
+    text-shadow: 0 0 10px var(--color-email-shadow), 0 0 20px var(--color-email-shadow),
+                 0 0 40px var(--color-email-shadow), 0 0 80px var(--color-email-shadow);
 }
-
 .glowing-green:hover {
     color: var(--color-email-glow);
-    text-shadow:
-            0 0 10px var(--color-email-glow),
-            0 0 20px var(--color-email-glow),
-            0 0 40px var(--color-email-glow),
-            0 0 80px var(--color-email-glow);
+    text-shadow: 0 0 10px var(--color-email-glow), 0 0 20px var(--color-email-glow),
+                 0 0 40px var(--color-email-glow), 0 0 80px var(--color-email-glow);
+}
+.small-text { font-size: .8rem; line-height: 1.6; }
+.copyright { margin-top: 2rem; }
+
+/* ---------- Glitch (Rise → Fall) ---------- */
+.text-container { position: relative; display: inline-block; }
+.glitch-word { position: relative; display: inline-block; transition: transform .15s; }
+.glitch-word.glitching {
+    transform: scale(1.1) translateY(-2px);
+    animation: skew .1s infinite, rgbSplit .1s infinite;
+}
+.glitch-word.glitching::before,
+.glitch-word.glitching::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    opacity: .5;
+}
+.glitch-word.glitching::before { left: 2px;  text-shadow: -2px 0 #ff0000; clip-path: inset(40% 0 45% 0); animation: noise .2s infinite reverse; }
+.glitch-word.glitching::after  { left: -2px; text-shadow:  2px 0 #00ff00; clip-path: inset(60% 0 20% 0); animation: noise .15s infinite; }
+
+@keyframes noise {
+    0%,100% { transform: translate(0); }
+    20% { transform: translate(-4px, 2px); }
+    40% { transform: translate(3px, -3px); }
+    60% { transform: translate(-3px); }
+    80% { transform: translate(4px, 3px); }
+}
+@keyframes skew {
+    0%,100% { transform: scale(1.1) skew(0deg); }
+    33% { transform: scale(1.1) skew(-4deg); }
+    66% { transform: scale(1.1) skew(4deg); }
+}
+@keyframes rgbSplit {
+    0%,100% { text-shadow: -2px 0 #ff0000, 2px 0 #00ff00; }
+    25% { text-shadow: -4px 0 #ff0000, 4px 0 #00ff00; }
+    50% { text-shadow: 2px 0 #ff0000, -2px 0 #00ff00; }
+    75% { text-shadow: 4px 0 #ff0000, -4px 0 #00ff00; }
 }
 
-.small-text {
-    font-size: .8rem;
+/* ---------- Tablet & mobile ---------- */
+@media (max-width: 900px) {
+    #press { padding: 6rem 2.5rem; }
+    footer .info { padding: 0 2.5rem 0 3rem; }
+    footer .studio { padding: 0 3rem 0 2.5rem; }
 }
 
-/* Footer */
-
-footer .col-md-6 {
-}
-
-footer .info {
-    font-size: 1rem;
-    padding-left:   8rem;
-    padding-right:  5rem;
-}
-
-footer .studio {
-    font-size: 1rem;
-    padding-right:  8rem;
-    padding-left:   5rem;
-}
-
-footer table {
-    font-size: 1rem;
-    line-height: 1rem;
-}
-
-footer table td:nth-child(2)
-{
-    padding-left: 1rem;
-}
-
-.separator-left-red {
-    border-left: var(--color-accent) 2px solid;
-}
-
-/* Display only if the page width is less than 720px */
 @media (max-width: 765px) {
+    .title-strip { padding: 4.5rem 1.25rem 3.5rem; }
+    .game-title { font-size: 1.7rem; letter-spacing: .25em; margin-right: -.25em; }
+    .game-sub { font-size: 1.05rem; }
 
-    .marquee-content {
-        width: 200%;
+    #cr {
+        grid-template-columns: 1fr;
+        min-height: 560px;
+        align-items: end;
+        background-image:
+            linear-gradient(to bottom, rgba(0,0,0,.1) 0%, rgba(0,0,0,.55) 45%, rgba(0,0,0,.9) 100%),
+            url(../assets/img/cr_empty.jpg);
+        background-position: 22% center;
     }
-    
-    @keyframes marquee {
-        0% {
-            transform: translateX(100%); /* Start from the right */
-        }
-        100% {
-            transform: translateX(-150%); /* Move to the left */
-        }
-    }
-    
-    #cr_empty {
-        width: 200vw;
-        position: relative;
-    }
-    
-    .info {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-    }
-    
-    .separator-top-red {
-        border-top: var(--color-accent) 2px solid;
-        padding-top: 3rem;
-        padding-bottom: 2rem;
-    }
+    .cr-hook { grid-column: 1; padding: 3rem 1.5rem 4.5rem; }
+    .title { font-size: 2rem; }
+    .tagline { font-size: 1.1rem; }
+    .system-log { font-size: .8rem; }
 
-    footer .col-md-6 {
-        padding-left:   3rem;
-        padding-right:  3rem;
+
+    #press { padding: 5rem 1.5rem; }
+    .pq-hero .pq-text { font-size: 1.9rem; }
+    .pq-row { grid-template-columns: 1fr; gap: 2.25rem; margin-top: 3rem; }
+
+    .footer-row { grid-template-columns: 1fr; }
+    footer .info { padding: 1rem 1.75rem 2rem; }
+    footer .studio {
+        border-left: 0;
+        border-top: 2px solid var(--color-accent);
+        padding: 2.5rem 1.75rem 1rem;
     }
+    .contact { margin-top: 2rem; padding: 2.5rem 1.25rem 0; }
+    .mail-container { font-size: 1.25rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .glitch-word.glitching, .glitch-word.glitching::before, .glitch-word.glitching::after { animation: none; }
 }

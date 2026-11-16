@@ -1,101 +1,111 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-	<title>Hail Macbeth</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Hail Macbeth</title>
+	<meta name="description" content="Hail Macbeth — a cinematic videogame based on Shakespeare's Macbeth, set in the 1990s. Coming 2027 to PC, Mac and consoles.">
+	<meta name="keywords" content="Hail Macbeth, Cinematic Game, Paolo Sacerdoti, Specto Studio, Narrative, Unreal, Third Person, Interactive Storytelling, Shakespeare, Paranoia, Power">
+
+	<!-- Social sharing card -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://www.hailmacbeth.com/">
+	<meta property="og:title" content="Hail Macbeth">
+	<meta property="og:description" content="A cinematic videogame based on Shakespeare's Macbeth, set in the 1990s. Coming 2027.">
+	<meta property="og:image" content="https://www.hailmacbeth.com/assets/img/og_image.jpg">
+	<meta name="twitter:card" content="summary_large_image">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="styles/styles.css">
-	<link rel="stylesheet" href="styles/glitch.css">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-	<meta name="description" content="Hail Macbeth" />
-	<meta name="keywords" content="Hail Macbeth Cinematic Game Paolo Sacerdoti Narrative Unreal Third Person Interactive Storytelling Shakespeare Paranoia Power" />
 </head>
 
 <body>
-	<div id="container">
-		<header>
-			<!-- Looping Video bouncing back and forth -->
-			<div class="video-container">
-				<video autoplay muted loop id="logo_crt" class="w-100">
-					<source src="assets/video/logo_crt_red.mp4" type="video/mp4">
-				</video>
-			</div>
-			<!-- Continuous scrolling text like news titles -->
-			<div class="marquee p-0 py-2">
-				<div class="marquee-content p-0">
-					<p class="white">Cinematic videogame: COMING SOON</p>
-				</div>
-			</div>
-		</header>
-	
-		<!-- Main content -->
-	
-		<div class="row consolas m-0" id="cr_empty">
-			<div class="col-6 position-relative">
-				<div class="system-log">&nbsp;[System Log: 
-					<span id="datetime">DateTime</span>]
-				</div>
-			</div>
-			<div id="contact" class="col-6 text-center py-4">
-				<div>
-					<div class="p-4"></div>
-					<p class="title m-0"><b>Witness the 
-						<span class="noise-bg scanline">
-							<span class="text-container">
-								<span class="glitch-word" data-text="unsex">Rise</span>
-							</span>
-						</span>
-					</b></p>
-					<p class="subtitle"><i>for questions or inquiries:</i></p>
-				</div>
-				
-				<p class="mail-container"><a class="consolas glowing-green" href="mailto:contact@hailmacbeth.com">contact@hailmacbeth.com</a></p>
-				
-				<p class="consolas small-text">All communications are monitored by <br>Macbeth Networks™<br>
-					Unauthorized transmissions will be investigated<br>
-					Macbeth Networks Compliance Report #045-22
-				</p>
+<div id="container">
+
+	<!-- ============ HERO ============ -->
+	<header>
+		<!-- Title strip -->
+		<div class="title-strip">
+			<h1 class="game-title">HAIL MACBETH</h1>
+			<p class="game-sub">A cinematic videogame based on Shakespeare’s Macbeth</p>
+		</div>
+	</header>
+
+	<!-- ============ CONTROL ROOM ============ -->
+	<section id="cr" class="consolas">
+		<div class="cr-hook">
+			<p class="title"><b>Witness the
+				<span class="text-container">
+					<span class="glitch-word" data-text="unsex">Rise</span>
+				</span>
+			</b></p>
+			<p class="tagline">The original text, set in the 1990s —<br>and Macbeth’s fate in your hands.</p>
+		</div>
+		<div class="system-log">[System Log: <span id="datetime">--/--/---- --:-- --</span>]</div>
+	</section>
+
+	<!-- ============ PRESS ============ -->
+	<section id="press">
+		<div class="press-poster">
+			<a class="pq pq-hero" href="https://screenrant.com/hail-macbeth-interactive-game-shakespeare-good-idea-op-ed/" target="_blank" rel="noopener">
+				<span class="pq-text">“One of the best ideas for a video game I’ve ever heard”</span>
+				<span class="pq-src consolas">SCREEN RANT</span>
+			</a>
+			<div class="pq-row">
+				<a class="pq" href="https://variety.com/2025/gaming/news/shakespeare-macbeth-game-1236335046/" target="_blank" rel="noopener">
+					<span class="pq-text">“Challenges interactive storytelling boundaries”</span>
+					<span class="pq-src consolas">VARIETY</span>
+				</a>
+				<a class="pq" href="https://www.vice.com/en/article/shakespeare-entices-gamers-through-hail-macbeth-an-ambitious-blend-of-theater-gaming-and-dynamic-storytelling/" target="_blank" rel="noopener">
+					<span class="pq-text">“An ambitious blend of theater, gaming, and dynamic storytelling”</span>
+					<span class="pq-src consolas">VICE</span>
+				</a>
+				<a class="pq" href="https://www.arte.it/notizie/milano/macbeth-in-pixel-22821" target="_blank" rel="noopener">
+					<span class="pq-text">“You stop knowing exactly where theater ends and something else begins”</span>
+					<span class="pq-src consolas">ARTE.IT</span>
+				</a>
 			</div>
 		</div>
-			
-	
-		<!-- Footer -->
-		<footer class="times-new-roman">
-			<div class="spacer p-2 m-0 m-md-4"></div>
-			<div class="row py-4">
-				<div class="col-12 col-md-6 info">
-					<p>Directed by Paolo Sacerdoti, Hail Macbeth merges Shakespeare’s language with interactive storytelling in a world of paranoia and power—where players are both controller and controlled.</p>
-				</div>
-				<div class="col-12 col-md-6 studio consolas separator-left-red separator-top-red">
-					<table>
-						<tr>
-							<th class="pb-3" colspan="2">SPECTO STUDIO</th>
-						</tr>
-						<tr>
-							<td>Game:</td>
-							<td>Hail Macbeth</td>
-						</tr>
-						<tr>
-							<td>Type:</td>
-							<td>Narrative cinematic</td>
-						</tr>
-						<tr>
-							<td>Gameplay:</td>
-							<td>Third person</td>
-						</tr>
-						<tr>
-							<td>Release:</td>
-							<td> 2026</td>
-						</tr>
-					</table>
-				</div>
-			</div>
-		
-		</footer>
-	
-		<script src="scripts/scripts.js"></script>
-	</div>
-</body>
+	</section>
 
+	<!-- ============ MACBETH NETWORKS IDENT ============ -->
+	<div class="video-container ident">
+		<video autoplay muted loop playsinline id="logo_crt" poster="assets/img/logo_poster.jpg">
+			<source src="assets/video/logo_crt_red.mp4" type="video/mp4">
+		</video>
+	</div>
+
+	<!-- ============ FOOTER ============ -->
+	<footer>
+		<div class="footer-row">
+			<div class="info">
+				<p>Directed by Paolo Sacerdoti, Hail Macbeth is a cinematic third-person game that merges Shakespeare’s language with motion-captured performances and a custom orchestral score, in a world of paranoia and power—where players are both controller and controlled.</p>
+			</div>
+			<div class="studio consolas">
+				<table>
+					<tr><th colspan="2">SPECTO STUDIO</th></tr>
+					<tr><td>Game:</td><td>Hail Macbeth</td></tr>
+					<tr><td>Type:</td><td>Narrative cinematic</td></tr>
+					<tr><td>Gameplay:</td><td>Third person</td></tr>
+					<tr><td>Platforms:</td><td>PC · Mac · Consoles</td></tr>
+					<tr><td>Release:</td><td>2027</td></tr>
+				</table>
+			</div>
+		</div>
+
+		<div class="contact consolas">
+			<p class="subtitle"><i>for questions or inquiries:</i></p>
+			<p class="mail-container"><a class="glowing-green" href="mailto:contact@hailmacbeth.com">contact@hailmacbeth.com</a></p>
+			<p class="small-text">All communications are monitored by Macbeth Networks™<br>
+				Unauthorized transmissions will be investigated<br>
+				Macbeth Networks Compliance Report #045-22</p>
+			<p class="small-text muted copyright">© 2026 Specto Studio · Milan</p>
+		</div>
+	</footer>
+
+</div>
+<script src="scripts/scripts.js"></script>
+</body>
 </html>
