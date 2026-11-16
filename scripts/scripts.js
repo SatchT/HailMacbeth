@@ -1,8 +1,3 @@
-// ============================================================
-// HAIL MACBETH — page scripts
-// ============================================================
-
-// ---------- System log clock ----------
 document.addEventListener("DOMContentLoaded", function () {
     const el = document.querySelector('#datetime');
     if (!el) return;
@@ -20,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(update, 1000);
 });
 
-// ---------- Glitch: Rise → Fall ----------
 document.addEventListener("DOMContentLoaded", function () {
     const word = document.querySelector('.glitch-word');
     if (!word) return;
@@ -38,4 +32,3 @@ document.addEventListener("DOMContentLoaded", function () {
         if (Math.random() < 0.5) glitch();
     }, 500);
 });
-

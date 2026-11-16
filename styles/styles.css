@@ -1,45 +1,28 @@
-/* ============================================================
-   HAIL MACBETH — single page
-   ============================================================ */
-
 :root {
     --color-background: #000;
     --color-text: #ededed;
-    --color-muted: #8a8a8a;
     --color-marquee-text: #ff8c00;
     --color-email-glow: #41aa7b;
     --color-email-shadow: #225c42;
     --color-accent: #e30000;
     --color-log: #9f9f9f;
-    --color-line: #262626;
-    --max: 1080px;
-    --serif: 'EB Garamond', Garamond, 'Times New Roman', serif;
 }
 
-/* Fonts (local files in /assets/fonts, Google fallbacks) */
 @font-face {
     font-family: 'Consolas';
     font-style: normal;
     font-weight: 400;
     src: local('Consolas'), url(../assets/fonts/Consolas.woff) format('woff');
 }
-@font-face {
-    font-family: 'Subway Ticker';
-    font-style: normal;
-    font-weight: 400;
-    src: local('SubwayTicker'), url(../assets/fonts/SubwayTicker.woff) format('woff');
-}
-
 .consolas { font-family: 'Consolas', 'Share Tech Mono', monospace; }
 
-/* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 
 html, body {
     margin: 0;
     background: var(--color-background);
     color: var(--color-text);
-    font-family: var(--serif);
+    font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
     font-size: 16px;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -49,14 +32,13 @@ p { margin: 0; }
 a { color: inherit; }
 
 #container {
-    max-width: var(--max);
+    max-width: 1080px;
     margin: 0 auto;
 }
 
-.muted { color: var(--color-muted); }
+.muted { color: #8a8a8a; }
 .red { color: var(--color-accent); }
 
-/* ---------- Hero ---------- */
 video {
     display: block;
     width: 100%;
@@ -65,7 +47,6 @@ video {
     background: #000;
 }
 
-/* ---------- Title strip ---------- */
 .title-strip {
     padding: 7rem 1.5rem 5.5rem;
     text-align: center;
@@ -73,24 +54,22 @@ video {
 }
 .game-title {
     margin: 0;
-    font-family: var(--serif);
+    font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
     font-weight: 400;
     font-size: 2.6rem;
     letter-spacing: .32em;
-    margin-right: -.32em; /* keep spaced caps optically centred */
+    margin-right: -.32em;
     line-height: 1;
     color: var(--color-text);
 }
 .game-sub {
     margin-top: 1.1rem;
-    font-family: var(--serif);
+    font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
     font-style: italic;
     font-size: 1.3rem;
     color: #a8a8a8;
-    text-wrap: balance;
 }
 
-/* ---------- Control room ---------- */
 #cr {
     position: relative;
     min-height: 500px;
@@ -114,7 +93,7 @@ video {
 
 .tagline {
     margin-top: 1.25rem;
-    font-family: var(--serif);
+    font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
     font-style: italic;
     font-size: 1.4rem;
     line-height: 1.45;
@@ -129,7 +108,6 @@ video {
     font-size: 1rem;
 }
 
-/* ---------- Press: poster quotes ---------- */
 #press {
     position: relative;
     margin-top: 2rem;
@@ -153,10 +131,9 @@ video {
     color: var(--color-text);
 }
 .pq-text {
-    font-family: var(--serif);
+    font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
     font-size: 1.3rem;
     line-height: 1.3;
-    text-wrap: balance;
     text-shadow: 0 0 18px rgba(0,0,0,.9);
     transition: color .25s ease;
 }
@@ -189,7 +166,7 @@ video {
     padding-top: 3rem;
     position: relative;
 }
-.pq-row::before { /* short red rule, like a poster divider */
+.pq-row::before {
     content: "";
     position: absolute;
     top: 0; left: 50%;
@@ -198,20 +175,18 @@ video {
     background: var(--color-accent);
 }
 
-/* ---------- Ident ---------- */
 .ident {
     margin-top: 1rem;
-    aspect-ratio: 16 / 7.9;   /* trims ~12% of empty black above the logo */
+    aspect-ratio: 16 / 7.9;
     overflow: hidden;
 }
 .ident video {
     height: 100%;
     aspect-ratio: auto;
     object-fit: cover;
-    object-position: center 81%;  /* logo optically centred in the slot */
+    object-position: center 81%;
 }
 
-/* ---------- Footer ---------- */
 footer { padding: 3rem 0 3rem; }
 
 .footer-row {
@@ -233,9 +208,9 @@ footer td:nth-child(2) { padding-left: 1rem; }
     text-align: center;
     margin-top: 4rem;
     padding-top: 3rem;
-    border-top: 1px solid var(--color-line);
+    border-top: 1px solid #262626;
 }
-.subtitle { font-family: var(--serif); font-size: 1.3rem; }
+.subtitle { font-family: 'EB Garamond', Garamond, 'Times New Roman', serif; font-size: 1.3rem; }
 .mail-container { font-size: 1.5rem; padding: 1.5rem 0 2rem; }
 .glowing-green {
     color: var(--color-email-glow);
@@ -251,7 +226,6 @@ footer td:nth-child(2) { padding-left: 1rem; }
 .small-text { font-size: .8rem; line-height: 1.6; }
 .copyright { margin-top: 2rem; }
 
-/* ---------- Glitch (Rise → Fall) ---------- */
 .text-container { position: relative; display: inline-block; }
 .glitch-word { position: relative; display: inline-block; transition: transform .15s; }
 .glitch-word.glitching {
@@ -288,7 +262,6 @@ footer td:nth-child(2) { padding-left: 1rem; }
     75% { text-shadow: 4px 0 #ff0000, -4px 0 #00ff00; }
 }
 
-/* ---------- Tablet & mobile ---------- */
 @media (max-width: 900px) {
     #press { padding: 6rem 2.5rem; }
     footer .info { padding: 0 2.5rem 0 3rem; }
@@ -314,7 +287,6 @@ footer td:nth-child(2) { padding-left: 1rem; }
     .tagline { font-size: 1.1rem; }
     .system-log { font-size: .8rem; }
 
-
     #press { padding: 5rem 1.5rem; }
     .pq-hero .pq-text { font-size: 1.9rem; }
     .pq-row { grid-template-columns: 1fr; gap: 2.25rem; margin-top: 3rem; }
@@ -328,8 +300,4 @@ footer td:nth-child(2) { padding-left: 1rem; }
     }
     .contact { margin-top: 2rem; padding: 2.5rem 1.25rem 0; }
     .mail-container { font-size: 1.25rem; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .glitch-word.glitching, .glitch-word.glitching::before, .glitch-word.glitching::after { animation: none; }
 }
